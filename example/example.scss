@@ -1,0 +1,39 @@
+$scale-small: (
+        query:  '(min-width: 0) and (max-width: 639px)',
+        top:    20px,
+        right:  10px,
+        bottom: 20px,
+        left:   10px);
+
+$scale-medium: (
+        query:  '(min-width: 640px) and (max-width: 1279px)',
+        top:    30px,
+        right:  20px,
+        bottom: 30px,
+        left:   20px);
+
+$scale-large: (
+        query:  '(min-width: 1280px)',
+        top:    40px,
+        right:  30px,
+        bottom: 40px,
+        left:   30px);
+
+$scale-settings: $scale-small, $scale-medium, $scale-large;
+
+@import '../index';
+
+body {
+
+  // A single property
+  @include scale(padding);
+
+  // Several properties
+  @include scale(top, left);
+
+  // Multiply rendered values by two
+  @include scale(2, border-width);
+
+  // Render negative values
+  @include scale(-1, margin-left, margin-right);
+}

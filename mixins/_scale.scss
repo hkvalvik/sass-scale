@@ -1,0 +1,60 @@
+@function scale-is-side($property, $side){
+
+  // True if property equals top, right, bottom or left
+  @if $property == $side {
+    @return true;
+  }
+
+  // True if property equals padding-top, margin-right, border-bottom-width and so on
+  $search: '-' + $side;
+  @if str-index($property, $search) != null {
+    @return true;
+  }
+
+  @return false;
+}
+
+@function scale-sides($setting, $property){
+  $all: '';
+  @each $side in top right bottom left {
+    $value: map-get($setting, $side);
+    @if scale-is-side($property, $side){
+      @return $value;
+    }
+    $all: $all + $value + ' ';
+  }
+  @return unquote($all);
+}
+
+@mixin scale-query($setting, $properties){
+  $media-query: map-get($setting, query);
+  @media #{$media-query} {
+    @each $property in $properties {
+      #{$property}: scale-sides($setting, $property);
+    }
+  }
+}
+
+@function scale-setting($setting, $factor){
+  $scaled: (
+          top:    $factor * map-get($setting, top),
+          right:  $factor * map-get($setting, right),
+          bottom: $factor * map-get($setting, bottom),
+          left:   $factor * map-get($setting, left)
+  );
+  @return map-merge($setting, $scaled);
+}
+
+@mixin scale($factor: null, $properties...){
+
+  @if type-of($factor) == string {
+    $properties: join(($factor), $properties);
+    $factor: 1;
+    @debug $properties;
+  }
+
+  @each $setting in $scale-settings {
+    $setting: scale-setting($setting, $factor);
+    @include scale-query($setting, $properties);
+  }
+}

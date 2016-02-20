@@ -1,0 +1,53 @@
+@media (min-width: 0) and (max-width: 639px) {
+  body {
+    padding: 20px 10px 20px 10px ; } }
+
+@media (min-width: 640px) and (max-width: 1279px) {
+  body {
+    padding: 30px 20px 30px 20px ; } }
+
+@media (min-width: 1280px) {
+  body {
+    padding: 40px 30px 40px 30px ; } }
+
+@media (min-width: 0) and (max-width: 639px) {
+  body {
+    top: 20px;
+    left: 10px; } }
+
+@media (min-width: 640px) and (max-width: 1279px) {
+  body {
+    top: 30px;
+    left: 20px; } }
+
+@media (min-width: 1280px) {
+  body {
+    top: 40px;
+    left: 30px; } }
+
+@media (min-width: 0) and (max-width: 639px) {
+  body {
+    border-width: 40px 20px 40px 20px ; } }
+
+@media (min-width: 640px) and (max-width: 1279px) {
+  body {
+    border-width: 60px 40px 60px 40px ; } }
+
+@media (min-width: 1280px) {
+  body {
+    border-width: 80px 60px 80px 60px ; } }
+
+@media (min-width: 0) and (max-width: 639px) {
+  body {
+    margin-left: -10px;
+    margin-right: -10px; } }
+
+@media (min-width: 640px) and (max-width: 1279px) {
+  body {
+    margin-left: -20px;
+    margin-right: -20px; } }
+
+@media (min-width: 1280px) {
+  body {
+    margin-left: -30px;
+    margin-right: -30px; } }

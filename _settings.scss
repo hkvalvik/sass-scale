@@ -1,0 +1,37 @@
+// Media query breakpoints
+
+$scale-media-small-start:    0 !default;
+$scale-media-medium-start:   640px !default;
+$scale-media-large-start:    1280px !default;
+
+// Media queries
+
+$scale-media-query-small:    media-query-width($scale-media-small-start, $scale-media-medium-start - 1px) !default;
+$scale-media-query-medium:   media-query-width($scale-media-medium-start, $scale-media-large-start - 1px) !default;
+$scale-media-query-large:    media-query-width($scale-media-large-start) !default;
+
+// Settings
+
+$scale-small: (
+        query:  $scale-media-query-small,
+        top:    16px,
+        right:  12px,
+        bottom: 16px,
+        left:   12px) !default;
+
+$scale-medium: (
+        query:  $scale-media-query-medium,
+        top:    24px,
+        right:  16px,
+        bottom: 24px,
+        left:   16px) !default;
+
+$scale-large: (
+        query:  $scale-media-query-large,
+        top:    32px,
+        right:  24px,
+        bottom: 32px,
+        left:   24px) !default;
+
+$scale-settings: $scale-small, $scale-medium, $scale-large !default;
+

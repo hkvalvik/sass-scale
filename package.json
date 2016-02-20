@@ -1,0 +1,12 @@
+{
+  "name": "sass-scale",
+  "version": "1.0.0",
+  "description": "Responsive css properties",
+  "main": "gulpfile.js",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0"
+  }
+}
