@@ -5,7 +5,7 @@ Scale css properties responsively with a single `@include`.
 ## Usage
 
     body {
-      &
+
       // A single property
       @include scale(padding);
 
