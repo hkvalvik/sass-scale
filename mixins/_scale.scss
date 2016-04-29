@@ -50,7 +50,6 @@
   @if type-of($factor) == string {
     $properties: join(($factor), $properties);
     $factor: 1;
-    @debug $properties;
   }
 
   @each $setting in $scale-settings {
