@@ -1,0 +1,119 @@
+@import "../node_modules/normalize-scss/sass/normalize";
+@import "../node_modules/sass-media-mixins/index";
+@import "../node_modules/fontset/fonts/roboto-slab_roboto.scss";
+@import "../index";
+
+@include normalize;
+
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+$max-width: 1200px;
+$demo-example-color-1: deepskyblue;
+$demo-example-color-2: #000;
+
+.demo {
+  @include fontset;
+  @include clearfix;
+  max-width: $max-width;
+  margin: 0 auto;
+
+  &-heading {
+    @include scale(1, padding);
+    margin-bottom: 0 !important;
+  }
+
+  &-readme {
+    @include scale(1, padding-right, padding-bottom, padding-left);
+
+    @include media-medium-and-large {
+      float: left;
+      width: 50%;
+    }
+
+    > h1 {
+      display: none;
+    }
+  }
+
+  &-example {
+    @include scale(1, padding-right, padding-bottom, padding-left);
+
+    @include media-medium-and-large {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  &-element {
+    width: 20px;
+    height: 20px;
+  }
+
+  &-padding {
+    @include scale(padding);
+    display: inline-block;
+    background-color: $demo-example-color-1;
+  }
+
+  &-padding &-element {
+    background-color: $demo-example-color-2;
+  }
+
+  &-margin {
+    display: inline-block;
+    background-color: $demo-example-color-2;
+  }
+
+  &-margin &-element {
+    @include scale(margin);
+    background-color: $demo-example-color-1;
+  }
+
+  &-border-width {
+    @include scale(border-width);
+    border-style: solid;
+    border-color: $demo-example-color-1;
+    width: 80px;
+    height: 80px;
+  }
+
+  &-position {
+    @include scale(3, width);
+    @include scale(3, height);
+    position: relative;
+    background-color: $demo-example-color-2;
+  }
+
+  &-position &-element {
+    @include scale(top, right, bottom, left, width, height);
+    position: absolute;
+    background-color: $demo-example-color-1;
+  }
+
+  &-width-height {
+    @include scale(3, width);
+    @include scale(3, height);
+    background-color: $demo-example-color-1;
+  }
+
+  &-min-width-height {
+    @include scale(3, min-width);
+    @include scale(3, min-height);
+    display: inline-block;
+    background-color: $demo-example-color-1;
+  }
+
+  &-max-width-height {
+    @include scale(3, max-width);
+    @include scale(3, max-height);
+    width: 200px;
+    height: 200px;
+    background-color: $demo-example-color-1;
+  }
+}

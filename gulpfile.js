@@ -1,14 +1,13 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
 
-gulp.task('css', function () {
-    return gulp.src('example/example.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('example'));
-});
+gulp.task('css', require('./gulp-tasks/css')(gulp));
+gulp.task('demo-css', require('./gulp-tasks/demo-css')(gulp));
+gulp.task('html', require('./gulp-tasks/html')(gulp));
 
 gulp.task('watch', function(){
     gulp.watch(['**/**/*.scss', '!node_modules'], ['css']);
+    gulp.watch(['demo/**/*.scss'], ['demo-css']);
+    gulp.watch(['demo/**/*.hbs'], ['html']);
 });
 
-gulp.task('default', ['css', 'watch']);
+gulp.task('default', ['css', 'demo-css', 'html', 'watch']);

@@ -1,8 +1,13 @@
 # Sass scale
 
-Scale css properties responsively with a single `@include`.
+Scale css properties responsively with a single `@include`.<br />
+[Documentation and examples](http://hkvalvik.github.io/sass-scale)
 
 ## Usage
+
+    // Your settings
+
+    @import "node_modules/sass-scale/index";
 
     body {
 
@@ -46,17 +51,17 @@ All media queries and values can be configured like this:
 
     $scale-settings: $scale-small, $scale-medium, $scale-large;
 
-    @import 'sass-scale/index';
+    @import "node_modules/sass-scale/index";
 
-## Example output
+## Example input / output
 
-**Scss**
+### Scss
 
     body {
       @include scale(padding);
     }
 
-**Css**
+### Css
 
     @media (max-width: 639px) {
       body { padding: 15px 10px 15px 10px }
@@ -94,3 +99,12 @@ All media queries and values can be configured like this:
     right
     bottom
     left
+
+    width
+    height
+
+    min-width
+    min-height
+
+    max-width
+    max-height

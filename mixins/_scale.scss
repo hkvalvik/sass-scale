@@ -26,11 +26,29 @@
   @return unquote($all);
 }
 
+@function property-is-horizontal($propery) {
+  $list: (width, min-width, max-width);
+  @return index($list, $propery) != null;
+}
+
+@function property-is-vertical($propery) {
+  $list: (height, min-height, max-height);
+  @return index($list, $propery) != null;
+}
+
 @mixin scale-query($setting, $properties){
   $media-query: map-get($setting, query);
   @media #{$media-query} {
     @each $property in $properties {
-      #{$property}: scale-sides($setting, $property);
+      @if property-is-horizontal($property) {
+        #{$property}: map-get($setting, width);
+      }
+      @else if property-is-vertical($property) {
+        #{$property}: map-get($setting, height);
+      }
+      @else {
+        #{$property}: scale-sides($setting, $property);
+      }
     }
   }
 }
@@ -40,7 +58,9 @@
           top:    $factor * map-get($setting, top),
           right:  $factor * map-get($setting, right),
           bottom: $factor * map-get($setting, bottom),
-          left:   $factor * map-get($setting, left)
+          left:   $factor * map-get($setting, left),
+          width:  ($factor * (map-get($setting, left) + map-get($setting, right))) / 2,
+          height: ($factor * (map-get($setting, top) + map-get($setting, bottom))) / 2
   );
   @return map-merge($setting, $scaled);
 }
