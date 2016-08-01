@@ -53,6 +53,13 @@ All media queries and values can be configured like this:
 
     @import "node_modules/sass-scale/index";
 
+
+    git checkout gh-pages
+    git rebase master
+    git push origin gh-pages
+    git checkout master
+
+
 ## Example input / output
 
 ### Scss
